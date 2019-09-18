@@ -1,7 +1,7 @@
 import React from "react";
 
 function FormComponent(props) {
-  const { OnAgeChange, onNameChange, onRole, onFormSubmit } = props;
+  const { onNameChange, onFormSubmit } = props;
   const { name, age, role } = props.initialList;
   const isDisabled = () => {
     if (!name || !age || !role) {
@@ -18,20 +18,28 @@ function FormComponent(props) {
           onChange={onNameChange}
           id="nameInput"
           value={name}
+          name="name"
           type="text"
         />
 
         <label htmlFor="nameInput">Role</label>
         <input
           maxLength={50}
-          onChange={onRole}
+          onChange={onNameChange}
           id="nameInput"
           value={role}
+          name="role"
           type="text"
         />
 
         <label htmlFor="ageInput">Age</label>
-        <input onChange={OnAgeChange} id="ageInput" value={age} type="number" />
+        <input
+          onChange={onNameChange}
+          id="ageInput"
+          value={age}
+          name="age"
+          type="number"
+        />
 
         <button disabled={isDisabled()} onClick={onFormSubmit}>
           submit
